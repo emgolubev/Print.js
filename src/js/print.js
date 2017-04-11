@@ -58,6 +58,9 @@ module.exports = function () {
     case 'html':
       printJS.html()
       break
+    case 'rawHtml':
+      return printJS.rawHtml()
+      break
     case 'json':
       printJS.json()
       break
@@ -217,7 +220,7 @@ PrintJS.prototype.image = function () {
   self.print()
 }
 
-PrintJS.prototype.html = function () {
+PrintJS.prototype.rawHtml = function () {
   // get HTML printable element
   let printElement = document.getElementById(this.params.printable)
 
@@ -260,8 +263,14 @@ PrintJS.prototype.html = function () {
   // store html data
   this.params.htmlData = addWrapper(printableElement.innerHTML)
 
-  // print html element contents
-  this.print()
+  return this.params
+}
+
+PrintJS.prototype.html = function () {
+  if (this.rawHtml()) {
+    // print html element contents
+    this.print() 
+  }
 }
 
 PrintJS.prototype.json = function () {
