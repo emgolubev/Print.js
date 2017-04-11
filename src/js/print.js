@@ -2,7 +2,7 @@
 
 let browser = require('./browser')
 
-let printTypes = ['pdf', 'html', 'image', 'json']
+let printTypes = ['pdf', 'html', 'raw', 'image', 'json']
 
 let defaultParams = {
   printable: null,
@@ -58,7 +58,7 @@ module.exports = function () {
     case 'html':
       printJS.html()
       break
-    case 'rawHtml':
+    case 'raw':
       return printJS.rawHtml()
       break
     case 'json':
@@ -66,7 +66,7 @@ module.exports = function () {
       break
     default:
           // throw invalid type error
-      throw new Error('Invalid print type. Available types are: pdf, html, image and json.')
+      throw new Error('Invalid print type. Available types are: pdf, html, raw, image and json.')
   }
 }
 
