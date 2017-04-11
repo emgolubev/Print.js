@@ -386,7 +386,7 @@ PrintJS.prototype.collectStyles = function (element) {
 
     for (let i = 0; i < style.length; i++) {
       // styles including
-      let targetStyles = ['border', 'float', 'box']
+      let targetStyles = ['border', 'float', 'box', 'font', 'line-height', 'text-align']
 
       // exact
       let targetStyle = ['clear', 'display', 'width', 'min-width', 'height', 'min-height', 'max-height']
@@ -407,6 +407,7 @@ PrintJS.prototype.collectStyles = function (element) {
         }
       }
     }
+    elementStyle += 'color:#000000;'
   } else if (element.currentStyle) { // IE
     style = element.currentStyle
 
@@ -457,6 +458,10 @@ PrintJS.prototype.loopNodesCollectStyles = function (elements) {
       // get all styling for print element
       currentElement.setAttribute('style', this.collectStyles(currentElement))
     }
+
+    currentElement.removeAttribute('id')
+
+    currentElement.removeAttribute('class')
 
     // check if more elements in tree
     let children = currentElement.children
