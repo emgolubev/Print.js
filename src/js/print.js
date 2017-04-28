@@ -408,7 +408,9 @@ PrintJS.prototype.collectStyles = function (element) {
       }
     }
     if (element && ['rect'].indexOf(element.tagName) === -1) {
-      elementStyle += 'color:#000000;'
+      elementStyle += 'color:#000000;-webkit-text-fill-color:#000000;'
+    } else if(element && elementStyle.indexOf('fill') === -1) {
+      elementStyle += 'fill:#000000;'
     }
   } else if (element.currentStyle) { // IE
     style = element.currentStyle
