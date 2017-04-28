@@ -386,7 +386,7 @@ PrintJS.prototype.collectStyles = function (element) {
 
     for (let i = 0; i < style.length; i++) {
       // styles including
-      let targetStyles = ['border', 'float', 'box', 'font', 'line-height', 'text-align']
+      let targetStyles = ['border', 'float', 'box', 'font', 'line-height', 'text-align', 'fill']
 
       // exact
       let targetStyle = ['clear', 'display', 'width', 'min-width', 'height', 'min-height', 'max-height']
