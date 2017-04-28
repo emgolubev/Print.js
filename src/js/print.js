@@ -407,7 +407,9 @@ PrintJS.prototype.collectStyles = function (element) {
         }
       }
     }
-    elementStyle += 'color:#000000;'
+    if (element && ['rect'].indexOf(element.tagName) === -1) {
+      elementStyle += 'color:#000000;'
+    }
   } else if (element.currentStyle) { // IE
     style = element.currentStyle
 
